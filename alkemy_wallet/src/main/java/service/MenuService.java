@@ -6,7 +6,6 @@ import database.baseDeDatos;
 import model.Cuenta;
 import model.Sesion;
 import model.monedas.Pesos;
-import service.CuentaService;
 
 public class MenuService {
 
@@ -31,7 +30,7 @@ public class MenuService {
             """);
             try {
                 opcion = Integer.parseInt(teclado.nextLine());
-            } catch (Exception e) {
+            } catch (NumberFormatException e) {
                 System.out.println("Error " + e + ". Ingrese un número entero.");
                 continue;
             }
@@ -122,23 +121,25 @@ public class MenuService {
                                 cantidadAgregar
                             );
                             System.out.println("Saldo actualizado correctamente.");
-                        } catch (Exception e) {
-                            System.out.println("Error al retirar fondos. Ingrese un número válido.");
+                        } catch (NumberFormatException e) {
+                            System.out.println("Error al agregar fondos. Ingrese un número válido.");
                         }
                         break;
+
                     case 3:
                        System.out.println("Ingrese la cantidad a retirar:");
                         try {
                             long cantidadRetirar = Long.parseLong(teclado.nextLine());
-                            CuentaService.agregarFondos(
+                            CuentaService.retirarFondos(
                                 baseDeDatos.obtenerCuentaPorId(sesion.getIdActivo()),
                                 cantidadRetirar
                             );
                             System.out.println("Saldo actualizado correctamente.");
-                        } catch (Exception e) {
+                        } catch (NumberFormatException e) {
                             System.out.println("Error al retirar fondos. Ingrese un número válido.");
                         }
                         break;
+
                     case 4:
                         System.out.println("Ingrese el ID de la cuenta a la que desea transferir.");
                         try {
@@ -151,13 +152,14 @@ public class MenuService {
                                     cantidadTransferir
                                 );
                                 System.out.println("Saldo actualizado correctamente.");
-                            } catch (Exception e) {
+                            } catch (NumberFormatException e) {
                                 System.out.println("Error al retirar fondos. Ingrese un monto válido.");
                             }
-                        } catch (Exception e) {
+                        } catch (NumberFormatException e) {
                             System.out.println("Error al retirar fondos. Ingrese un número válido.");
                         }
                         break;
+
                     case 5:
                         cerrarSesion();
                         enSesion = false;
@@ -165,9 +167,8 @@ public class MenuService {
                     default:
                         System.out.println("Ingrese una opción válida.");
                 }
-            } catch (Exception e) {
+            } catch (NumberFormatException e) {
                 System.out.println("Error " + e + ". Ingrese un número entero.");
-                continue;
             }
         } while (enSesion);
     }
