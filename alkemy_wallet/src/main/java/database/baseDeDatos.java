@@ -9,9 +9,12 @@ public class baseDeDatos {
 
     public baseDeDatos() {
         Cuenta primeraCuenta = new Cuenta("Sebastian", "seba.leon@alkemy.com", "seba123", new model.monedas.Pesos());
-        primeraCuenta.setSaldo(100000);
+        primeraCuenta.setSaldo(100000.0);
+        Cuenta segundCuenta = new Cuenta("Sabina", "sabina@alkemy.com", "sabina123", new model.monedas.Euro());
+        segundCuenta.setSaldo(500.0);
         this.cuentas = new ArrayList<>();
         this.cuentas.add(primeraCuenta);
+        this.cuentas.add(segundCuenta);
     }
 
     public void agregarCuenta(Cuenta cuenta) {

@@ -6,7 +6,7 @@ public class Cuenta {
     private String nombre;
     private String email;
     private String contrasena;
-    private long saldo;
+    private Double saldo;
     private Moneda moneda;
 
     public Cuenta(String nombre, String email, String contrasena, Moneda moneda) {
@@ -14,7 +14,7 @@ public class Cuenta {
         this.nombre = nombre;
         this.email = email;
         this.contrasena = contrasena;
-        this.saldo = 0;
+        this.saldo = 0.0;
         this.moneda = moneda;
     }
 
@@ -50,11 +50,11 @@ public class Cuenta {
         this.contrasena = contrasena;
     }
 
-    public long getSaldo() {
+    public Double getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(long saldo) {
+    public void setSaldo(Double saldo) {
         this.saldo = saldo;
     }
 

@@ -5,5 +5,7 @@ public interface Moneda {
 
     String getNombre();
 
-    long convertirAPesos(long cantidad);
+    Double convertirAPesos(Double cantidad);
+
+    Double convertirDesdePesos(Double cantidad);
 }

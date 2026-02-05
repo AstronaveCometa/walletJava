@@ -3,7 +3,7 @@ package model.monedas;
 public class Euro implements model.Moneda {
     @Override
     public Character getSimbolo() {
-        return 'â‚¬';
+        return '¤';
     }
 
     @Override
@@ -12,8 +12,13 @@ public class Euro implements model.Moneda {
     }
 
     @Override
-    public long convertirAPesos(long cantidad) {
+    public Double convertirAPesos(Double cantidad) {
         return cantidad * 1024;
+    }
+
+    @Override
+    public Double convertirDesdePesos(Double cantidad) {
+        return cantidad / 1024.0;
     }
 
 }
