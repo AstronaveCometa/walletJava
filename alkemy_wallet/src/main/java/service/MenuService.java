@@ -10,12 +10,19 @@ import model.monedas.Euro;
 import model.monedas.Pesos;
 import utils.ComandosTerminal;
 
+// Esta clase se encarga de mostrar el menú principal del programa,
+// y de manejar las opciones que el usuario elige en el menú.
 public class MenuService {
 
     static Scanner teclado = new Scanner(System.in);
-    static baseDeDatos baseDeDatos = new baseDeDatos();
-    static Sesion sesion = new Sesion();
+    static baseDeDatos baseDeDatos = new baseDeDatos(); // Acá se crea una instancia de la clase
+    // baseDeDatos, para poder acceder a las cuentas almacenadas en el ArrayList de cuentas.
+    // Esto simula la conexión a una base de datos real.
 
+    static Sesion sesion = new Sesion(); // Acá se crea una instancia de la clase Sesion,
+    // para poder manejar la sesión del usuario.
+
+    // Este método se encarga de mostrar el menú principal del programa.
     public static void mostrarMenu() {
         int opcion;
         boolean funcionando = true;
@@ -82,6 +89,10 @@ public class MenuService {
         } while (funcionando);
     }
 
+    // Este método se encarga de manejar el inicio de sesión del usuario,
+    // pidiéndole que ingrese su email y contraseña,
+    // y comparándolos con los datos de las cuentas almacenadas
+    // en el ArrayList de cuentas, para verificar si el inicio de sesión es correcto.
     public static void iniciarSesion() {
         System.out.println("Ingrese el email:");
         String email = teclado.nextLine();
@@ -107,6 +118,10 @@ public class MenuService {
                         }
     }
 
+    // Este método se encarga de manejar la creación de una cuenta nueva,
+    // pidiéndole al usuario que ingrese su nombre, email y contraseña.
+    // El resto de los datos de la cuenta se asignan por defecto,
+    // como el tipo de moneda (Pesos) y el saldo inicial (0).
     public static void crearCuenta() {
         System.out.println("Ingrese su nombre:");
         String nombre = teclado.nextLine();
@@ -120,6 +135,8 @@ public class MenuService {
         System.out.println("Cuenta creada correctamente. Su ID de usuario es: " + nuevaCuenta.getId());
     }
 
+    // Este método se encarga de manejar el cierre de sesión del usuario,
+    // asignando el idActivo de la sesión a -1, y el estado de sesiónIniciada a false.
     public static void cerrarSesion() {
         sesion.setIdActivo(-1);
         sesion.setSesionIniciada(false);
@@ -132,6 +149,9 @@ public class MenuService {
         }
     }
 
+    // Este método se encarga de manejar el cambio de moneda de la cuenta del usuario,
+    // pidiéndole que elija la moneda a la que desea cambiar, y luego convirtiendo el saldo
+    // de la cuenta a la nueva moneda, utilizando los métodos de conversión de cada clase de moneda.
     public static void cambiarMonedaDeCuenta() {
         ComandosTerminal.limpiarPantalla();
         boolean continuar = true;
@@ -191,6 +211,9 @@ public class MenuService {
         } while (continuar);
     }
 
+    // Este método se encarga de mostrar el menú de opciones que el usuario tiene disponible
+    // una vez que ha iniciado sesión, y de manejar las opciones que el usuario elige en ese menú,
+    // como consultar saldo, agregar fondos, retirar fondos, transferir fondos, cambiar moneda o cerrar sesión.
     public static void menuSesionIniciada() {
         boolean enSesion = true;
         do {

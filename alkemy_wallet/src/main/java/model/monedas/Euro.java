@@ -1,5 +1,7 @@
 package model.monedas;
 
+// Euro implementa desde la interfaz Moneda, con los
+// valores ajustados a los euros, con su símbolo, su nombre, y las conversiones a pesos y desde pesos.
 public class Euro implements model.Moneda {
     @Override
     public Character getSimbolo() {

@@ -1,7 +1,12 @@
 package model;
 
 public class Cuenta {
-    private static int contadorIds = 0;
+    private static int contadorIds = 0; //Este atributo es estático,
+    // porque se comparte entre todas las instancias de la clase Cuenta,
+    // y se utiliza para asignar un id único a cada cuenta creada, en el
+    // orden de instanciación de las cuentas, es decir, la primera cuenta creada tendrá id 0,
+    // la segunda cuenta creada tendrá id 1, y así sucesivamente.
+
     private int id;
     private String nombre;
     private String email;
@@ -10,11 +15,14 @@ public class Cuenta {
     private Moneda moneda;
 
     public Cuenta(String nombre, String email, String contrasena, Moneda moneda) {
-        this.id = contadorIds++;
+        this.id = contadorIds++; //Al asignar el id de esta manera,
+        // se garantiza que cada cuenta creada tendrá un id único,
+        // y que los ids se asignarán en el orden de instanciación de las cuentas.
+
         this.nombre = nombre;
         this.email = email;
         this.contrasena = contrasena;
-        this.saldo = 0.0;
+        this.saldo = 0.0; // El saldo inicial de una cuenta es 0.0.
         this.moneda = moneda;
     }
 
