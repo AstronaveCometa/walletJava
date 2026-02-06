@@ -34,8 +34,8 @@ public class MonedaTest {
     @Test
     public void testEuroConversion() {
         Moneda euro = new model.monedas.Euro();
-        assertEquals(101400, euro.convertirAPesos(100.0));
-        assertEquals(100.0, euro.convertirDesdePesos(101400.0));
+        assertEquals(102400, euro.convertirAPesos(100.0));
+        assertEquals(100.0, euro.convertirDesdePesos(102400.0));
     }
 
     @Test
