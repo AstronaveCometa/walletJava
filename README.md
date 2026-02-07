@@ -1,1 +1,7 @@
 # walletJava
+
+La aplicación Alkewallet es una aplicación de consola sencilla que permite crear cuentas bancarias y administrarlas. La primera pantalla permite iniciar sesión, crear una cuenta o salir de la aplicación. Para crear una cuenta es necesario indicar el nombre, el e-mail y la contraseña. El ID se asignará automáticamente, al igual que el monto inicial ($0) así como el tipo de moneda (pesos).
+
+Si se inicia sesión correctamente, proveyendo el e-mail y la contraseña de la cuenta, es posible realizar alguna de las siguientes opciones: consultar saldo, cargar dinero a la cuenta, retirar dinero de la cuenta, transferir dinero a otra cuenta y cambiar la moneda de la cuenta entre pesos, dólares y euros, convirtiendo el monto a la cantidad proporcional.
+
+La aplicación funciona con una base de datos ficticia, la que simula una conexión a una base de datos real, y una sesión que indica si se ha iniciado o no sesión y cuál es el usuario activo. Además, contempla todos los posibles escenarios de fallos por parte del usuario, y captura dichos errores. Cuenta con documentación que explica el código, un diagrama de clases para comprender la arquitectura de la app y una suite de tests para probar el correcto funcionamiento del código.
